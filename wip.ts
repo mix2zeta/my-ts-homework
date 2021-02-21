@@ -3,11 +3,21 @@ interface name  { subject_name : string }
 
 type searchParam = id | name
 
+class Line {
+    constructor(public legth: number) {
+        console.log('create Line obj')
+    }
+}
+
 class Square {
     constructor(
-        private canEdit: boolean
+        private size: number
         ) {
-        console.log(this.canEdit)
+        console.log(this.size)
+    }
+
+    get line(): Line {
+        return new Line(this.size/4)
     }
 
     draw(something: searchParam) {
@@ -29,6 +39,19 @@ class Square {
         
     }
 }
-let square = new Square(true);
+let square = new Square(16);
+
 const find : id = {subject_id: 55}
+const test = {
+    aaa: 15
+}
+console.log(test['aaa'])
+
 square.draw(find);
+
+square.line
+console.log(square.line.legth)
+
+let bbb= [ 1,2,3,4]
+
+bbb.reduce((a,b,c)=> a+ b ,0)
